@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VideoCameraView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibr-Bk-UWn">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Gaw-nH-kGY"/>
+                        <constraint firstAttribute="width" constant="50" id="qij-UJ-lnT"/>
+                    </constraints>
+                    <state key="normal" title="切换">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.57567531780000003" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="changeCaptureAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="e5l-eN-472"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UI6-dn-Gqw">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="H52-7p-Gil"/>
+                        <constraint firstAttribute="height" constant="30" id="ONc-VW-TQo"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="美颜切换">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title="美颜切换"/>
+                    <connections>
+                        <action selector="filterChangeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="re3-QR-12q"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkH-hk-qKP">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="aye-On-cUq"/>
+                        <constraint firstAttribute="width" constant="62" id="d6c-kS-GTM"/>
+                    </constraints>
+                    <state key="normal" title="录制结束">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="finishRecord:" destination="iN0-l3-epB" eventType="touchUpInside" id="Dqb-hX-9jI"/>
+                    </connections>
+                </button>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="XT8-bG-aUP">
+                    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="updateSliderValue:" destination="iN0-l3-epB" eventType="valueChanged" id="UHD-hf-CdS"/>
+                    </connections>
+                </slider>
+                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6g-CA-ig9">
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="dUL-iU-Obl"/>
+                        <constraint firstAttribute="width" constant="60" id="dsk-RH-TJg"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="开始">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected" title="暂停">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startRecordAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="WwF-fF-Raz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efe-Ls-N5J">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="OeB-fu-E8x"/>
+                        <constraint firstAttribute="height" constant="30" id="isK-M5-thT"/>
+                    </constraints>
+                    <state key="normal" title="Quite">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="quiteAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="jmB-QA-7rt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4T-KN-cg2">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="2CY-ED-MBg"/>
+                        <constraint firstAttribute="height" constant="30" id="bnc-Ec-7xb"/>
+                    </constraints>
+                    <state key="normal" title="慢拍">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="slowBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Ji-t6-azp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ibr-Bk-UWn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1Zu-3w-qJB"/>
+                <constraint firstItem="efe-Ls-N5J" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="6Og-Io-ZAe"/>
+                <constraint firstItem="lkH-hk-qKP" firstAttribute="trailing" secondItem="efe-Ls-N5J" secondAttribute="trailing" id="84l-Qe-Jkw"/>
+                <constraint firstItem="XT8-bG-aUP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="8US-rN-YxE"/>
+                <constraint firstAttribute="bottom" secondItem="q6g-CA-ig9" secondAttribute="bottom" constant="30" id="8ka-bJ-JOI"/>
+                <constraint firstAttribute="trailing" secondItem="lkH-hk-qKP" secondAttribute="trailing" constant="20" id="B5k-un-1GW"/>
+                <constraint firstItem="q6g-CA-ig9" firstAttribute="centerY" secondItem="UI6-dn-Gqw" secondAttribute="centerY" id="EkL-hV-bDx"/>
+                <constraint firstItem="G4T-KN-cg2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Jg6-CT-gtS"/>
+                <constraint firstItem="Ibr-Bk-UWn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Kxa-e5-8aj"/>
+                <constraint firstAttribute="trailing" secondItem="efe-Ls-N5J" secondAttribute="trailing" constant="20" id="MFF-Vc-oLj"/>
+                <constraint firstItem="lkH-hk-qKP" firstAttribute="centerY" secondItem="UI6-dn-Gqw" secondAttribute="centerY" id="RpZ-ke-WKK"/>
+                <constraint firstItem="UI6-dn-Gqw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="VJp-Zl-zyL"/>
+                <constraint firstItem="XT8-bG-aUP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cx7-28-cQS"/>
+                <constraint firstItem="q6g-CA-ig9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="guG-tG-7jo"/>
+                <constraint firstItem="G4T-KN-cg2" firstAttribute="centerX" secondItem="XT8-bG-aUP" secondAttribute="centerX" id="kdC-FT-Spq"/>
+                <constraint firstItem="q6g-CA-ig9" firstAttribute="top" secondItem="XT8-bG-aUP" secondAttribute="bottom" constant="30" id="n08-oU-ect"/>
+                <constraint firstAttribute="trailing" secondItem="XT8-bG-aUP" secondAttribute="trailing" constant="50" id="wh8-vA-to4"/>
+            </constraints>
+            <connections>
+                <outlet property="changeCaptureBtn" destination="Ibr-Bk-UWn" id="G75-Tk-JEW"/>
+                <outlet property="changeFileBtn" destination="UI6-dn-Gqw" id="IAs-uR-n5a"/>
+                <outlet property="filterSlider" destination="XT8-bG-aUP" id="KCh-e7-SDV"/>
+                <outlet property="finishRecordBtn" destination="lkH-hk-qKP" id="weQ-hM-Ozx"/>
+                <outlet property="quiteBtn" destination="efe-Ls-N5J" id="orr-1O-wPi"/>
+                <outlet property="slowBtn" destination="G4T-KN-cg2" id="JOc-lO-5dT"/>
+                <outlet property="startRecordBtn" destination="q6g-CA-ig9" id="4Ln-lv-ACZ"/>
+            </connections>
+            <point key="canvasLocation" x="-909" y="-905"/>
+        </view>
+    </objects>
+</document>

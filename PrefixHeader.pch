@@ -1,0 +1,40 @@
+//
+//  PrefixHeader.pch
+//  GPUCameraTest
+//
+//  Created by ispeak on 2017/3/16.
+//  Copyright © 2017年 ydd. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define viewWidth(view) view.bounds.size.width
+#define viewHeight(view) view.bounds.size.height
+#define viewOriginX(view) view.frame.origin.x
+#define viewOriginY(view) view.frame.origin.y
+
+//camera filter
+#define kFilterNone @"原图"
+#define kFilterZiRan  @"自然"
+#define kFilterTianMi @"甜美可人"
+#define kFilterWeiMei @"唯美"
+#define kFilterDianYa @"典雅"
+#define kFilterFenNen @"粉嫩"
+#define kFilterLuoKeKe @"洛可可"
+#define kFilterABaoSe @"阿宝色"
+#define kFilterQingLiang @"清凉"
+#define kFilterFuGu @"复古"
+#define kFilterHuaiJiu @"怀旧"
+#define kFilterHeiBai @"黑白"
+#define kFilterRouGuang @"柔光"
+#define kFilterStartTag 10000
+
+
+
+#endif /* PrefixHeader_pch */

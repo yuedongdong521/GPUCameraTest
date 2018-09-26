@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "GPUImage.h"
+@interface MyGPUMovie : NSObject<GPUImageMovieDelegate>
 
-@interface MyGPUMovie : NSObject
+@property (nonatomic, strong) GPUImageMovie *movieFile;
+@property (nonatomic, strong) GPUImageOutput<GPUImageInput> *filter;
+
+
 
 @end

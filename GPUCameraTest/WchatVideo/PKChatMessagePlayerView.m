@@ -1,22 +1,22 @@
 //
-//  MoviePlayerView.m
+//  PKChatMessagePlayerView.m
 //  GPUCameraTest
 //
 //  Created by ispeak on 2017/12/28.
 //  Copyright © 2017年 ydd. All rights reserved.
 //
 
-#import "MoviePlayerView.h"
+#import "PKChatMessagePlayerView.h"
 #import "GPUImageMovie.h"
 #import "GPUImageView.h"
 
-@interface MoviePlayerView () <GPUImageMovieDelegate>
+@interface PKChatMessagePlayerView () <GPUImageMovieDelegate>
 
 @property (nonatomic, strong) GPUImageMovie *moviePlayer;
 
 @end
 
-@implementation MoviePlayerView
+@implementation PKChatMessagePlayerView
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -26,13 +26,13 @@
 }
 */
 
-- (instancetype)initWithFrame:(CGRect)frame WithURL:(NSString *)urlStr
+- (instancetype)initWithFrame:(CGRect)frame videoPath:(NSString *)videoPath
 {
     self = [super initWithFrame:frame];
     if (self) {
         GPUImageView *filterView = [[GPUImageView alloc] initWithFrame:self.bounds];
         [self addSubview:filterView];
-        _moviePlayer = [[GPUImageMovie alloc] initWithURL:[NSURL fileURLWithPath:urlStr]];
+        _moviePlayer = [[GPUImageMovie alloc] initWithURL:[NSURL fileURLWithPath:videoPath]];
         _moviePlayer.shouldRepeat = YES; //重复播放
         _moviePlayer.runBenchmark = YES; //打印播放日志
         _moviePlayer.playAtActualSpeed = YES; //是否正常速度播放
@@ -43,12 +43,12 @@
 }
 
 
-- (void)startPlay
+- (void)play
 {
     [_moviePlayer startProcessing];
 }
 
-- (void)stopPlay
+- (void)stop
 {
     [_moviePlayer endProcessing];
 }

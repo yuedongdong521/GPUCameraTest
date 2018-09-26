@@ -21,13 +21,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _nameArray = @[@"MyVideoViewController", @"MyCameraViewController", @"EnditorVideoViewController"];
+    _nameArray = @[@"MyVideoViewController", @"MyCameraViewController", @"EnditorVideoViewController", @"MoviePlayerViewController"];
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     
 }
@@ -37,7 +39,7 @@
     Class class = NSClassFromString(_nameArray[indexPath.row]);
     UIViewController *vc = class.new;
     vc.title = _nameArray[indexPath.row];
-    if (indexPath.item == 2) {
+    if (indexPath.item >= 2) {
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [self presentViewController:vc animated:YES completion:nil];

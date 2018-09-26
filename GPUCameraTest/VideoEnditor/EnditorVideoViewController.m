@@ -11,10 +11,11 @@
 #import "VideoEnditor.h"
 
 
-@interface EnditorVideoViewController ()
+@interface EnditorVideoViewController ()<GPUImageMovieDelegate>
 {
     AVPlayer *player;
     id _playerTimeObserver;
+    GPUImageMovie *gpuMovie;
 }
 
 @property (nonatomic, strong) NSURL *videoUrl;
@@ -141,12 +142,25 @@
     
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:self.videoUrl];
     player = [AVPlayer playerWithPlayerItem:playerItem];
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    playerLayer.frame = imageView.bounds;
-    playerLayer.backgroundColor = [UIColor clearColor].CGColor;
-    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    [imageView.layer addSublayer:playerLayer];
-    player.volume = 0;
+    gpuMovie = [[GPUImageMovie alloc] initWithPlayerItem:playerItem];
+    gpuMovie.runBenchmark = YES;
+    gpuMovie.shouldRepeat = YES;
+    gpuMovie.playAtActualSpeed = YES;
+    gpuMovie.delegate = self;
+//    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
+//    playerLayer.frame = imageView.bounds;
+//    playerLayer.backgroundColor = [UIColor clearColor].CGColor;
+//    playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+//    [imageView.layer addSublayer:playerLayer];
+    GPUImageView *gpuView = [[GPUImageView alloc] initWithFrame:imageView.bounds];
+    [gpuMovie addTarget:gpuView];
+    [imageView addSubview:gpuView];
+    
+    player.volume = 1.0;
+    
+    player.rate = 0.0;
+ 
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerFinished:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerFinished:) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -207,6 +221,7 @@
         if (newUrl) {
             AVPlayerItem *newItem = [AVPlayerItem playerItemWithURL:newUrl];
             [player replaceCurrentItemWithPlayerItem:newItem];
+        
             [self startPlayer];
         }
     }];
@@ -428,8 +443,10 @@
     
 }
 
+
 - (void)startPlayer
 {
+    [gpuMovie startProcessing];
     [player play];
     self.isPlaying = YES;
 }

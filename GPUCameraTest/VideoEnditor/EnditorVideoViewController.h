@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GPUImage.h"
 
 @interface EnditorVideoViewController : UIViewController
 

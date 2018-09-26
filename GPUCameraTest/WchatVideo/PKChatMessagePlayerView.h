@@ -1,5 +1,5 @@
 //
-//  MoviePlayerView.h
+//  PKChatMessagePlayerView.h
 //  GPUCameraTest
 //
 //  Created by ispeak on 2017/12/28.
@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoviePlayerView : UIView
+@interface PKChatMessagePlayerView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame WithURL:(NSString *)urlStr;
+- (instancetype)initWithFrame:(CGRect)frame videoPath:(NSString *)videoPath;
 
-- (void)startPlay;
+- (void)play;
 
-- (void)stopPlay;
+- (void)stop;
 
 @end

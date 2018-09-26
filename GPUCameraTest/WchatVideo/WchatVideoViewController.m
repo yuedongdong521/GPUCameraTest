@@ -7,6 +7,7 @@
 //
 
 #import "WchatVideoViewController.h"
+#import "MyGPUMovie.h"
 
 @interface WchatVideoViewController ()
 

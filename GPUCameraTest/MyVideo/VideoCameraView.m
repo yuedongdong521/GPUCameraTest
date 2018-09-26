@@ -202,6 +202,8 @@
         NSURL *movieURL = [NSURL fileURLWithPath:pathToMovie];
         movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(720.0, 1280.0)];
         
+//        movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:<#(NSURL *)#> size:<#(CGSize)#> fileType:<#(NSString *)#> outputSettings:<#(NSDictionary *)#>]//设置视屏输出参数
+        
         movieWriter.encodingLiveVideo = YES;
         movieWriter.assetWriter.movieFragmentInterval = kCMTimeInvalid;
         movieWriter.shouldPassthroughAudio = NO;

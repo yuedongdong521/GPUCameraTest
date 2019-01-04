@@ -141,6 +141,9 @@
 		60B783591F15EECE00BD50D7 /* blend.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B783561F15EECE00BD50D7 /* blend.png */; };
 		60B7835A1F15EECE00BD50D7 /* DSoftLightBlendFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B783581F15EECE00BD50D7 /* DSoftLightBlendFilter.m */; };
 		AFAF6CF1915B2CF30AAABF1E /* libPods-GPUCameraTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B431B1F605BEF5877DCACEE /* libPods-GPUCameraTest.a */; };
+		ED532C4621D1FF70008E9049 /* MakeMyVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED532C4521D1FF70008E9049 /* MakeMyVideoViewController.m */; };
+		ED532C4821D1FFB7008E9049 /* footSafe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ED532C4721D1FFB7008E9049 /* footSafe.mp4 */; };
+		ED748AA121DEFF7900CFFAC3 /* Localizaable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED748AA321DEFF7900CFFAC3 /* Localizaable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +326,12 @@
 		7B431B1F605BEF5877DCACEE /* libPods-GPUCameraTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUCameraTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B1A94A7366466453CBA2292 /* Pods-GPUCameraTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUCameraTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E35B77F8181A1D4F7FD663D7 /* Pods-GPUCameraTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUCameraTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest.release.xcconfig"; sourceTree = "<group>"; };
+		ED532C4421D1FF70008E9049 /* MakeMyVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakeMyVideoViewController.h; sourceTree = "<group>"; };
+		ED532C4521D1FF70008E9049 /* MakeMyVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeMyVideoViewController.m; sourceTree = "<group>"; };
+		ED532C4721D1FFB7008E9049 /* footSafe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = footSafe.mp4; sourceTree = "<group>"; };
+		ED748A9D21DEFC3A00CFFAC3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		ED748A9E21DEFC3A00CFFAC3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		ED748AA221DEFF7900CFFAC3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizaable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +386,7 @@
 				6048A4011F00EFD100BD7BAB /* oppo */,
 				604A538E1EEAB27200AC3F72 /* Movie.mp4 */,
 				604A538C1EEA863E00AC3F72 /* rain.mp4 */,
+				ED532C4721D1FFB7008E9049 /* footSafe.mp4 */,
 				604A53901EEABCEA00AC3F72 /* Music.m4a */,
 				604A537F1EE7E62900AC3F72 /* katong.png */,
 				604A537D1EE7CC4D00AC3F72 /* xiangkuang.png */,
@@ -515,6 +525,7 @@
 		604A62831E7A66CE00D17ADE = {
 			isa = PBXGroup;
 			children = (
+				ED748AA321DEFF7900CFFAC3 /* Localizaable.strings */,
 				604A62CA1E7A75A500D17ADE /* PrefixHeader.pch */,
 				604A628E1E7A66CE00D17ADE /* GPUCameraTest */,
 				604A62A81E7A66CE00D17ADE /* GPUCameraTestTests */,
@@ -545,6 +556,8 @@
 				604A62931E7A66CE00D17ADE /* AppDelegate.m */,
 				604A62951E7A66CE00D17ADE /* ViewController.h */,
 				604A62961E7A66CE00D17ADE /* ViewController.m */,
+				ED532C4421D1FF70008E9049 /* MakeMyVideoViewController.h */,
+				ED532C4521D1FF70008E9049 /* MakeMyVideoViewController.m */,
 				60B762281FF493DF00BE672A /* WchatVideo */,
 				604A62981E7A66CE00D17ADE /* Main.storyboard */,
 				604A629B1E7A66CE00D17ADE /* Assets.xcassets */,
@@ -767,12 +780,14 @@
 				6048A4A51F00EFD100BD7BAB /* oppo78.png in Resources */,
 				6048A4AB1F00EFD100BD7BAB /* oppo83.png in Resources */,
 				6048A4831F00EFD100BD7BAB /* oppo47.png in Resources */,
+				ED532C4821D1FFB7008E9049 /* footSafe.mp4 in Resources */,
 				6048A4A91F00EFD100BD7BAB /* oppo81.png in Resources */,
 				6048A4861F00EFD100BD7BAB /* oppo5.png in Resources */,
 				6048A4901F00EFD100BD7BAB /* oppo59.png in Resources */,
 				604A538F1EEAB27200AC3F72 /* Movie.mp4 in Resources */,
 				6048A4AC1F00EFD100BD7BAB /* oppo84.png in Resources */,
 				6048A47C1F00EFD100BD7BAB /* oppo40.png in Resources */,
+				ED748AA121DEFF7900CFFAC3 /* Localizaable.strings in Resources */,
 				6048A4941F00EFD100BD7BAB /* oppo62.png in Resources */,
 				6048A46C1F00EFD100BD7BAB /* oppo26.png in Resources */,
 				604A53801EE7E62900AC3F72 /* katong.png in Resources */,
@@ -907,6 +922,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED532C4621D1FF70008E9049 /* MakeMyVideoViewController.m in Sources */,
 				60636F6F1E96058E007CF4EA /* MyCameraViewController.m in Sources */,
 				6042A65F1EE645500030C8CB /* VideoCameraView.m in Sources */,
 				604A4CC11F3C768A005EF66B /* EnditorVideoViewController.m in Sources */,
@@ -967,6 +983,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				604A62991E7A66CE00D17ADE /* Base */,
+				ED748A9D21DEFC3A00CFFAC3 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -975,8 +992,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				604A629E1E7A66CE00D17ADE /* Base */,
+				ED748A9E21DEFC3A00CFFAC3 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ED748AA321DEFF7900CFFAC3 /* Localizaable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED748AA221DEFF7900CFFAC3 /* zh-Hans */,
+			);
+			name = Localizaable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -986,6 +1012,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1033,6 +1060,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1075,6 +1103,7 @@
 			baseConfigurationReference = 9B1A94A7366466453CBA2292 /* Pods-GPUCameraTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WUFQ2E5U2G;
@@ -1082,10 +1111,10 @@
 				INFOPLIST_FILE = GPUCameraTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jilang.hotlives;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qinhe.-.iShow";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d1d00216-2856-4c6b-bbfc-35ff562cdf9e";
-				PROVISIONING_PROFILE_SPECIFIER = QHHotlivesDevelopment;
+				PROVISIONING_PROFILE_SPECIFIER = ISDevelopment;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
@@ -1095,6 +1124,7 @@
 			baseConfigurationReference = E35B77F8181A1D4F7FD663D7 /* Pods-GPUCameraTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -1102,7 +1132,7 @@
 				INFOPLIST_FILE = GPUCameraTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jilang.hotlives;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qinhe.-.iShow";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

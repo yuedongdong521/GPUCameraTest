@@ -8,16 +8,35 @@
 
 #import "MyGPUMovie.h"
 
+@interface MyGPUMovie ()
+{
+  AVPlayerItem *_playerItem;
+  AVPlayer *_player;
+  CMTime _pausedTime;
+}
+
+@property (nonatomic, strong) GPUImageView *videoView;
+@property (nonatomic, strong) NSURL *videoURL;
+
+
+@end
+
+
 @implementation MyGPUMovie
 
 - (instancetype)initWithVideoPath:(NSString *)videoPath WithTagView:(UIView *)tagView
 {
     self = [super init];
     if (self) {
-        GPUImageView *filterView = [[GPUImageView alloc] initWithFrame:tagView.frame];
-        [tagView addSubview:filterView];
-        NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
-        _movieFile = [[GPUImageMovie alloc] initWithURL:videoURL];
+      
+      _videoView = [[GPUImageView alloc] initWithFrame:tagView.frame];
+      [tagView addSubview:_videoView];
+      
+      _videoURL = [NSURL fileURLWithPath:videoPath];
+      _playerItem = [[AVPlayerItem alloc]initWithURL:_videoURL];
+      _player = [AVPlayer playerWithPlayerItem:_playerItem];
+      
+      _movieFile = [[GPUImageMovie alloc] initWithPlayerItem:_playerItem];
         
         /**
          *  This enables the benchmarking mode, which logs out instantaneous and average frame times to the console
@@ -37,10 +56,10 @@
          *  设为YES，则会根据视频本身时长计算出每帧的时间间隔，然后每渲染一帧，就sleep一个时间间隔，从而达到正常的播放速度。
          */
         _movieFile.playAtActualSpeed = YES;
-        
-        //    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
-        //    [movieFile addTarget:progressFilter];
-        [_movieFile addTarget:filterView];
+      
+      _filter = [[GPUImageFilter alloc] init];
+      [_movieFile addTarget:_filter];
+      [_filter addTarget:_videoView];
         
         
         
@@ -69,6 +88,87 @@
 {
     AVURLAsset *asset = [AVURLAsset assetWithURL:url];
 }
+
+
+- (void)filterClicked:(UIButton *)button
+{
+  // Set paused time. If player reaches end of the video, set pausedTime to 0.
+  if (CMTimeCompare(_pausedTime, _player.currentItem.asset.duration)) {
+    _pausedTime = _player.currentTime;
+  } else {
+    _pausedTime = CMTimeMake(0, 600.0);
+  }
+  [self.videoView setBackgroundColor:[UIColor clearColor]];
+  
+  [_movieFile cancelProcessing];
+  
+  switch (button.tag)
+  {
+    case 0:
+      _filter = nil;
+      _filter = [[GPUImageFilter alloc] init];
+      break;
+    case 1:
+      _filter = nil;
+      _filter = [[GPUImageColorInvertFilter alloc] init];
+      break;
+    case 2:
+      _filter = nil;
+      _filter = [[GPUImageEmbossFilter alloc] init];
+      break;
+    case 3:
+      _filter = nil;
+      _filter = [[GPUImageGrayscaleFilter alloc] init];
+      break;
+    default:
+      _filter = nil;
+      _filter = [[GPUImageFilter alloc] init];
+      break;
+  }
+  
+  [self filterVideo];
+  
+}
+
+- (void)filterVideo {
+  
+  // AVPlayerItem is initialized with required url
+  
+  _playerItem = [[AVPlayerItem alloc]initWithURL:self.videoURL];
+  [_player replaceCurrentItemWithPlayerItem:_playerItem];
+  
+  //GPUImageMovie is initialized with AVPlayerItem
+  
+  _movieFile = [[GPUImageMovie alloc] initWithPlayerItem:_playerItem];
+  
+  _movieFile.runBenchmark = YES;
+  _movieFile.playAtActualSpeed = YES;
+  
+  // Adding targets for movieFile and filter
+  
+  [_movieFile addTarget:_filter];
+  [_filter addTarget:self.videoView]; // self.videoView is my GPUImageView
+  
+  [_movieFile startProcessing];
+  
+  
+  // Player rate is set to 0 means player is paused
+  
+  [_player setRate:0.0];
+  
+  // Seeking to the point where video was paused
+  
+  if (CMTimeCompare(_pausedTime, _player.currentItem.asset.duration) == 0) {
+    [_player play];
+    
+  } else {
+    [_player seekToTime:_pausedTime];
+    [_player play];
+  }
+}
+
+
+
 
 
 @end

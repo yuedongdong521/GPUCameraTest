@@ -434,6 +434,99 @@ CGAffineTransform GetCGAffineTransformRotateAroundPoint(float centerX, float cen
     }];
 }
 
+- (void)cutOutVideosAtFileURL:(NSURL *)fileURL ForCutSize:(CGSize)cutSize ForBackNewVideoUrl:(void (^)(NSURL *newVideoUrl))BackNewVideoUrl
+{
+  NSError *error = nil;
+  
+  NSMutableArray *layerInstructionArray = [[NSMutableArray alloc] init];
+  
+  AVMutableComposition *mixComposition = [[AVMutableComposition alloc] init];
+  
+  CMTime totalDuration = kCMTimeZero;
+  
+  AVAsset *asset = [AVAsset assetWithURL:fileURL];
+  
+  NSArray* tmpAry =[asset tracksWithMediaType:AVMediaTypeVideo];
+  if (tmpAry.count == 0) {
+    if (BackNewVideoUrl) {
+      BackNewVideoUrl(nil);
+    }
+    return;
+  }
+  
+  AVAssetTrack *assetTrack = [tmpAry objectAtIndex:0];
+  
+  //初始化音频轨道容器
+  AVMutableCompositionTrack *audioTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+  
+  NSArray*dataSourceArray= [asset tracksWithMediaType:AVMediaTypeAudio];
+  //插入音频，并指定插入时长和插入时间点
+  [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, asset.duration)
+                      ofTrack:([dataSourceArray count]>0)?[dataSourceArray objectAtIndex:0]:nil
+                       atTime:totalDuration
+                        error:nil];
+  
+  //初始化视频轨道容器
+  AVMutableCompositionTrack *videoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+  //插入视频，并指定插入时长和插入时间点
+  [videoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, asset.duration)
+                      ofTrack:assetTrack
+                       atTime:totalDuration
+                        error:&error];
+  NSLog(@"line371%lld , %d",asset.duration.value,asset.duration.timescale);
+  
+  //  视频轨道的操作指令      AVMutableVideoCompositionLayerInstruction，它的主要作用是用来规定video的样式，比如说，你合并两个视频，第一个怎么放？转九十度放呢，还是边放边旋转呢？还是边放边改变透明度？都是由这个掌控的
+  AVMutableVideoCompositionLayerInstruction *layerInstruciton = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
+  
+  totalDuration = CMTimeAdd(totalDuration, asset.duration);
+  
+  CGFloat rateX = cutSize.width / assetTrack.naturalSize.width;
+  CGFloat rateY = cutSize.height / assetTrack.naturalSize.height;
+  
+  NSLog(@"原视频分辨率 width : %@, height : %@", @(assetTrack.naturalSize.width), @(assetTrack.naturalSize.height));
+  
+  CGAffineTransform layerTransform = CGAffineTransformMake(assetTrack.preferredTransform.a, assetTrack.preferredTransform.b, assetTrack.preferredTransform.c, assetTrack.preferredTransform.d, assetTrack.preferredTransform.tx * rateX, assetTrack.preferredTransform.ty * rateY);
+  
+  layerTransform = CGAffineTransformConcat(layerTransform, CGAffineTransformMake(1, 0, 0, 1, 0, -0));
+  layerTransform = CGAffineTransformScale(layerTransform, rateX, rateY);
+  //设置视频合入的方向、缩放属性
+  [layerInstruciton setTransform:layerTransform atTime:kCMTimeZero];
+  //设置视频合入的不透明度
+  //        [layerInstruciton setOpacity:0.0 atTime:totalDuration];
+  //渐变的透明度
+  CMTime startTime = CMTimeMake(totalDuration.value - 0.5 * totalDuration.timescale, totalDuration.timescale);
+  CMTime durationTime = CMTimeMake(0.5 * totalDuration.timescale, totalDuration.timescale);
+  CMTimeRange timeRange = CMTimeRangeMake(startTime, durationTime);
+  [layerInstruciton setOpacityRampFromStartOpacity:1.0 toEndOpacity:0.0 timeRange:timeRange];
+  
+  
+  [layerInstructionArray addObject:layerInstruciton];
+  
+  //视频合成路径
+  AVMutableVideoCompositionInstruction *mainInstruciton = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
+  mainInstruciton.timeRange = CMTimeRangeMake(kCMTimeZero, totalDuration);
+  mainInstruciton.layerInstructions = layerInstructionArray;
+  //创建用来添加AVMutableCompositionTrack的，你可以把它想象成用来调度每个视频次序，时间的这么一个调度器。
+  AVMutableVideoComposition *mainCompositionInst = [AVMutableVideoComposition videoComposition];
+  mainCompositionInst.instructions = @[mainInstruciton];
+  mainCompositionInst.frameDuration = CMTimeMake(1, 30);
+  mainCompositionInst.renderSize = cutSize;
+  
+  //导出视频
+  AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetLowQuality];
+  exporter.videoComposition = mainCompositionInst;
+  exporter.outputURL = [self getVideoOutputFilePath:@"videoMerge"];
+  exporter.outputFileType = AVFileTypeMPEG4;
+  exporter.shouldOptimizeForNetworkUse = YES;
+  [exporter exportAsynchronouslyWithCompletionHandler:^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (BackNewVideoUrl) {
+        BackNewVideoUrl(exporter.outputURL);
+      }
+    });
+  }];
+}
+
 
 
 

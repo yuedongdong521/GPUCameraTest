@@ -36,4 +36,8 @@
  ***/
 - (void)mergeAndExportVideosAtFileURLs:(NSMutableArray *)fileURLArray ForNewVideoHWRate:(CGFloat)newVideoHWRate ForBackNewVideoUrl:(void (^)(NSURL *newVideoUrl))BackNewVideoUrl;
 
+- (void)cutOutVideosAtFileURL:(NSURL *)fileURL ForCutSize:(CGSize)cutSize ForBackNewVideoUrl:(void (^)(NSURL *newVideoUrl))BackNewVideoUrl;
+
+
+
 @end

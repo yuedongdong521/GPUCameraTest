@@ -561,4 +561,73 @@ CGAffineTransform GetCGAffineTransformRotateAroundPoint(float centerX, float cen
 }
 
 
+
+//视频中合入音频
+- (void)getMusicToVideoFileUrl:(NSURL *)fileUrl CompletionBlock:(void(^)(NSURL *backURL))completionBlock
+{
+  if (!fileUrl) {
+    return;
+  }
+  //读取视频
+  AVAsset *asset = [AVAsset assetWithURL:fileUrl];
+//  AVAssetTrack *assetAudioTrack = nil;
+//
+//  //获取音频轨道
+//  if ([[asset tracksWithMediaType:AVMediaTypeAudio] count] != 0) {
+//    assetAudioTrack = [asset tracksWithMediaType:AVMediaTypeAudio][0];
+//  }
+//  NSError *error = nil;
+  
+
+  CMTime start = CMTimeMakeWithSeconds(0, asset.duration.timescale);
+  CMTime duration = asset.duration;
+  CMTimeRange range = CMTimeRangeMake(start, duration);
+  AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetAppleM4A];
+
+  exportSession.outputFileType = AVFileTypeAppleM4A;
+  NSURL *outURL = [self getAudioOutputFilePath:@"audio"];
+  exportSession.outputURL = outURL;
+  exportSession.timeRange = range;
+  [exportSession exportAsynchronouslyWithCompletionHandler:^{
+    switch (exportSession.status) {
+      case AVAssetExportSessionStatusCompleted:
+        
+        // Step 3
+        // Notify AVSEViewController about export completion
+        completionBlock(outURL);
+        break;
+      case AVAssetExportSessionStatusFailed:
+        NSLog(@"Failed:%@",exportSession.error);
+        completionBlock(outURL);
+        break;
+      case AVAssetExportSessionStatusCancelled:
+        NSLog(@"Canceled:%@",exportSession.error);
+        completionBlock(outURL);
+        break;
+      default:
+        break;
+    }
+  }];
+}
+
+- (NSURL *)getAudioOutputFilePath:(NSString *)name
+{
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *path = [paths objectAtIndex:0];
+  
+  path = [path stringByAppendingPathComponent:@"audioFolder"];
+  BOOL isDire;
+  if (![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDire]) {
+    [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+  }
+  
+  NSString *fileName = [path stringByAppendingPathComponent:[name stringByAppendingString:@".mp3"]];
+  if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
+    [[NSFileManager defaultManager] removeItemAtPath:fileName error:nil];
+  }
+  return [NSURL fileURLWithPath:fileName];
+  
+}
+
+
 @end

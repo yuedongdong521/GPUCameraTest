@@ -38,6 +38,7 @@
 
 - (void)cutOutVideosAtFileURL:(NSURL *)fileURL ForCutSize:(CGSize)cutSize ForBackNewVideoUrl:(void (^)(NSURL *newVideoUrl))BackNewVideoUrl;
 
+- (void)getMusicToVideoFileUrl:(NSURL *)fileUrl CompletionBlock:(void(^)(NSURL *backURL))completionBlock;
 
 
 @end

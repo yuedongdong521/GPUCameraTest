@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "AppUUID.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,9 @@
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nv;
     [self.window makeKeyAndVisible];
+  
+  NSString *uuid = [AppUUID getDeviceIDInKeychain];
+  NSLog(@"uuid : %@", uuid);
     
     return YES;
 }

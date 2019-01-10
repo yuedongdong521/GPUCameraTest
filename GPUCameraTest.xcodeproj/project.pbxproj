@@ -141,6 +141,8 @@
 		60B783591F15EECE00BD50D7 /* blend.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B783561F15EECE00BD50D7 /* blend.png */; };
 		60B7835A1F15EECE00BD50D7 /* DSoftLightBlendFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B783581F15EECE00BD50D7 /* DSoftLightBlendFilter.m */; };
 		AFAF6CF1915B2CF30AAABF1E /* libPods-GPUCameraTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B431B1F605BEF5877DCACEE /* libPods-GPUCameraTest.a */; };
+		ED1DD27221E4990500F4BD13 /* AppUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1DD27121E4990500F4BD13 /* AppUUID.m */; };
+		ED1DD27421E499FD00F4BD13 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1DD27321E499FC00F4BD13 /* Security.framework */; };
 		ED532C4621D1FF70008E9049 /* MakeMyVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED532C4521D1FF70008E9049 /* MakeMyVideoViewController.m */; };
 		ED532C4821D1FFB7008E9049 /* footSafe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ED532C4721D1FFB7008E9049 /* footSafe.mp4 */; };
 		ED748AA121DEFF7900CFFAC3 /* Localizaable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED748AA321DEFF7900CFFAC3 /* Localizaable.strings */; };
@@ -326,6 +328,9 @@
 		7B431B1F605BEF5877DCACEE /* libPods-GPUCameraTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUCameraTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B1A94A7366466453CBA2292 /* Pods-GPUCameraTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUCameraTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E35B77F8181A1D4F7FD663D7 /* Pods-GPUCameraTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUCameraTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest.release.xcconfig"; sourceTree = "<group>"; };
+		ED1DD27021E4990500F4BD13 /* AppUUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUUID.h; sourceTree = "<group>"; };
+		ED1DD27121E4990500F4BD13 /* AppUUID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppUUID.m; sourceTree = "<group>"; };
+		ED1DD27321E499FC00F4BD13 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		ED532C4421D1FF70008E9049 /* MakeMyVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakeMyVideoViewController.h; sourceTree = "<group>"; };
 		ED532C4521D1FF70008E9049 /* MakeMyVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeMyVideoViewController.m; sourceTree = "<group>"; };
 		ED532C4721D1FFB7008E9049 /* footSafe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = footSafe.mp4; sourceTree = "<group>"; };
@@ -339,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED1DD27421E499FD00F4BD13 /* Security.framework in Frameworks */,
 				604A62DC1E7B71E900D17ADE /* AVFoundation.framework in Frameworks */,
 				604A62DA1E7B71E100D17ADE /* QuartzCore.framework in Frameworks */,
 				604A62D81E7B71D100D17ADE /* OpenGLES.framework in Frameworks */,
@@ -369,6 +375,7 @@
 		351A526303E67511E3F88DD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED1DD27321E499FC00F4BD13 /* Security.framework */,
 				604A62DB1E7B71E900D17ADE /* AVFoundation.framework */,
 				604A62D91E7B71E100D17ADE /* QuartzCore.framework */,
 				604A62D71E7B71D100D17ADE /* OpenGLES.framework */,
@@ -554,6 +561,8 @@
 				60636F6C1E960561007CF4EA /* MyCamera */,
 				604A62921E7A66CE00D17ADE /* AppDelegate.h */,
 				604A62931E7A66CE00D17ADE /* AppDelegate.m */,
+				ED1DD27021E4990500F4BD13 /* AppUUID.h */,
+				ED1DD27121E4990500F4BD13 /* AppUUID.m */,
 				604A62951E7A66CE00D17ADE /* ViewController.h */,
 				604A62961E7A66CE00D17ADE /* ViewController.m */,
 				ED532C4421D1FF70008E9049 /* MakeMyVideoViewController.h */,
@@ -928,6 +937,7 @@
 				604A4CC11F3C768A005EF66B /* EnditorVideoViewController.m in Sources */,
 				604A62971E7A66CE00D17ADE /* ViewController.m in Sources */,
 				60636F7B1E962591007CF4EA /* FilterModel.m in Sources */,
+				ED1DD27221E4990500F4BD13 /* AppUUID.m in Sources */,
 				604A53851EE8DFB800AC3F72 /* README.md in Sources */,
 				6042A6651EE655FD0030C8CB /* PlayVideoViewController.m in Sources */,
 				604A62941E7A66CE00D17ADE /* AppDelegate.m in Sources */,

@@ -70,7 +70,12 @@
 
 - (void)cutupVideo
 {
-  
+  VideoEnditor *vieoEnditor = [[VideoEnditor alloc] init];
+  NSURL *fileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"footSafe" ofType:@"mp4"]];
+  [vieoEnditor getMusicToVideoFileUrl:fileURL CompletionBlock:^(NSURL *backURL) {
+    NSData *data = [NSData dataWithContentsOfURL:backURL];
+    NSLog(@"mp3 : %lu", (unsigned long)data.length);
+  }];
 }
 
 - (UITextField *)widthField

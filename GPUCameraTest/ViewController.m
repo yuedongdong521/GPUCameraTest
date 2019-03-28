@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _nameArray = @[@"MyVideoViewController", @"MyCameraViewController", @"EnditorVideoViewController", @"MoviePlayerViewController", @"MakeMyVideoViewController"];
+    _nameArray = @[@"MyVideoViewController", @"MyCameraViewController", @"EnditorVideoViewController", @"MoviePlayerViewController", @"MakeMyVideoViewController", @"GPUCaptureTestViewController"];
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
     tableView.delegate = self;

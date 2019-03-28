@@ -62,6 +62,8 @@
     videoCamera.horizontallyMirrorFrontFacingCamera = YES;
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     [videoCamera addAudioInputsAndOutputs];
+  //该句可防止允许声音通过的情况下，避免录制第一帧黑屏闪屏(====)
+  [videoCamera addAudioInputsAndOutputs];
     
     filter = [[GPUImageSaturationFilter alloc] init];
     filteredVideoView = [[GPUImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

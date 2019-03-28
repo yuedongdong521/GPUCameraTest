@@ -141,11 +141,14 @@
 		60B783591F15EECE00BD50D7 /* blend.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B783561F15EECE00BD50D7 /* blend.png */; };
 		60B7835A1F15EECE00BD50D7 /* DSoftLightBlendFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B783581F15EECE00BD50D7 /* DSoftLightBlendFilter.m */; };
 		AFAF6CF1915B2CF30AAABF1E /* libPods-GPUCameraTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B431B1F605BEF5877DCACEE /* libPods-GPUCameraTest.a */; };
+		ED1086942243AB46006CB980 /* GPUCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1086932243AB46006CB980 /* GPUCapture.m */; };
 		ED1DD27221E4990500F4BD13 /* AppUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1DD27121E4990500F4BD13 /* AppUUID.m */; };
 		ED1DD27421E499FD00F4BD13 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1DD27321E499FC00F4BD13 /* Security.framework */; };
 		ED532C4621D1FF70008E9049 /* MakeMyVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED532C4521D1FF70008E9049 /* MakeMyVideoViewController.m */; };
 		ED532C4821D1FFB7008E9049 /* footSafe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ED532C4721D1FFB7008E9049 /* footSafe.mp4 */; };
 		ED748AA121DEFF7900CFFAC3 /* Localizaable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED748AA321DEFF7900CFFAC3 /* Localizaable.strings */; };
+		EDFFE1892244852C00353B1D /* GPUCaptureTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFFE1882244852C00353B1D /* GPUCaptureTestViewController.m */; };
+		EDFFE18C22448F5200353B1D /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFFE18B22448F5200353B1D /* UIView+CornerRadius.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +331,8 @@
 		7B431B1F605BEF5877DCACEE /* libPods-GPUCameraTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUCameraTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B1A94A7366466453CBA2292 /* Pods-GPUCameraTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUCameraTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest.debug.xcconfig"; sourceTree = "<group>"; };
 		E35B77F8181A1D4F7FD663D7 /* Pods-GPUCameraTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUCameraTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest.release.xcconfig"; sourceTree = "<group>"; };
+		ED1086922243AB46006CB980 /* GPUCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCapture.h; sourceTree = "<group>"; };
+		ED1086932243AB46006CB980 /* GPUCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUCapture.m; sourceTree = "<group>"; };
 		ED1DD27021E4990500F4BD13 /* AppUUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUUID.h; sourceTree = "<group>"; };
 		ED1DD27121E4990500F4BD13 /* AppUUID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppUUID.m; sourceTree = "<group>"; };
 		ED1DD27321E499FC00F4BD13 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -337,6 +342,10 @@
 		ED748A9D21DEFC3A00CFFAC3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		ED748A9E21DEFC3A00CFFAC3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		ED748AA221DEFF7900CFFAC3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizaable.strings"; sourceTree = "<group>"; };
+		EDFFE1872244852C00353B1D /* GPUCaptureTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUCaptureTestViewController.h; sourceTree = "<group>"; };
+		EDFFE1882244852C00353B1D /* GPUCaptureTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUCaptureTestViewController.m; sourceTree = "<group>"; };
+		EDFFE18A22448F5200353B1D /* UIView+CornerRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
+		EDFFE18B22448F5200353B1D /* UIView+CornerRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +541,8 @@
 		604A62831E7A66CE00D17ADE = {
 			isa = PBXGroup;
 			children = (
+				EDFFE18A22448F5200353B1D /* UIView+CornerRadius.h */,
+				EDFFE18B22448F5200353B1D /* UIView+CornerRadius.m */,
 				ED748AA321DEFF7900CFFAC3 /* Localizaable.strings */,
 				604A62CA1E7A75A500D17ADE /* PrefixHeader.pch */,
 				604A628E1E7A66CE00D17ADE /* GPUCameraTest */,
@@ -556,6 +567,7 @@
 		604A628E1E7A66CE00D17ADE /* GPUCameraTest */ = {
 			isa = PBXGroup;
 			children = (
+				ED1086912243AB1A006CB980 /* GPUCapture */,
 				604A4CB81F3C768A005EF66B /* VideoEnditor */,
 				6042A65C1EE6452C0030C8CB /* MyVideo */,
 				60636F6C1E960561007CF4EA /* MyCamera */,
@@ -573,6 +585,8 @@
 				604A629D1E7A66CE00D17ADE /* LaunchScreen.storyboard */,
 				604A62A01E7A66CE00D17ADE /* Info.plist */,
 				604A628F1E7A66CE00D17ADE /* Supporting Files */,
+				EDFFE1872244852C00353B1D /* GPUCaptureTestViewController.h */,
+				EDFFE1882244852C00353B1D /* GPUCaptureTestViewController.m */,
 			);
 			path = GPUCameraTest;
 			sourceTree = "<group>";
@@ -643,6 +657,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		ED1086912243AB1A006CB980 /* GPUCapture */ = {
+			isa = PBXGroup;
+			children = (
+				ED1086922243AB46006CB980 /* GPUCapture.h */,
+				ED1086932243AB46006CB980 /* GPUCapture.m */,
+			);
+			path = GPUCapture;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -654,7 +677,6 @@
 				604A62881E7A66CE00D17ADE /* Sources */,
 				604A62891E7A66CE00D17ADE /* Frameworks */,
 				604A628A1E7A66CE00D17ADE /* Resources */,
-				67DB7F04076471FD80A0B34B /* [CP] Embed Pods Frameworks */,
 				EBE74D61CE4DE437A5CB5546 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -879,34 +901,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		67DB7F04076471FD80A0B34B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B1F19CF96CDCB4988F64F723 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPUCameraTest-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBE74D61CE4DE437A5CB5546 /* [CP] Copy Pods Resources */ = {
@@ -915,9 +925,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GPUCameraTest/Pods-GPUCameraTest-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -938,12 +959,15 @@
 				604A62971E7A66CE00D17ADE /* ViewController.m in Sources */,
 				60636F7B1E962591007CF4EA /* FilterModel.m in Sources */,
 				ED1DD27221E4990500F4BD13 /* AppUUID.m in Sources */,
+				ED1086942243AB46006CB980 /* GPUCapture.m in Sources */,
 				604A53851EE8DFB800AC3F72 /* README.md in Sources */,
 				6042A6651EE655FD0030C8CB /* PlayVideoViewController.m in Sources */,
 				604A62941E7A66CE00D17ADE /* AppDelegate.m in Sources */,
+				EDFFE18C22448F5200353B1D /* UIView+CornerRadius.m in Sources */,
 				60636F821E9654D4007CF4EA /* MyLookupFilter.m in Sources */,
 				604A53831EE8DFAD00AC3F72 /* SDAVAssetExportSession.m in Sources */,
 				60B7622B1FF4946D00BE672A /* WchatVideoViewController.m in Sources */,
+				EDFFE1892244852C00353B1D /* GPUCaptureTestViewController.m in Sources */,
 				60B7622E1FF4968200BE672A /* WchatVideoShotView.m in Sources */,
 				6034FF3B1FDE936700009D78 /* MyGPUMovie.m in Sources */,
 				604A62911E7A66CE00D17ADE /* main.m in Sources */,
